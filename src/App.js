@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import PieChartComponent from './components/PieChartComponent';
 import LineChartComponent from './components/LineChartComponent';
-import Mul
+import MultipleChartComponent from './components/MultipleLineChartComponent'
 
 class App extends Component {
   render() {
@@ -12,6 +12,7 @@ class App extends Component {
           <PieChartComponent/>
 
           <LineChartComponent/>
+          <MultipleChartComponent/>
       </div>
     );
   }

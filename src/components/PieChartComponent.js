@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Pie} from 'react-chartjs-2';
 import './style.css';
+// import axios from 'axios';
 
 
 export default class PieChartComponent extends Component
@@ -14,7 +15,9 @@ export default class PieChartComponent extends Component
     }
 
     componentDidMount() {
-        const football = [{ "name": "Interest Income",
+        // axios.get(`http://localhost:8000/api/charts`)
+        //     .then(res => {
+        const values = [{ "name": "Interest Income",
                             "score": -400},
             { "name": "Other Revenue",
                 "score": -200},
@@ -28,19 +31,19 @@ export default class PieChartComponent extends Component
                 "score": 390.5}
 
         ];
-        let playername = [];
-        let playerscore = [];
-        football.forEach(element => {
-            playername.push(element.name);
-            playerscore.push(element.score);
+        let nameArray = [];
+        let scoreArray = [];
+        values.forEach(element => {
+            nameArray.push(element.name);
+            scoreArray.push(element.score);
         });
         this.setState({
             Data: {
-                labels: playername,
+                labels: nameArray,
                 datasets:[
                     {
                         label:'Test',
-                        data: playerscore ,
+                        data: scoreArray ,
                         backgroundColor:[
                             'rgba(173,255,47,0.6)',
                             'rgba(0,128,0,0.6)',
@@ -69,6 +72,7 @@ export default class PieChartComponent extends Component
                 }
             }
         });
+         // })
     }
 
     render()

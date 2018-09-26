@@ -17,7 +17,7 @@ export default class LineChartComponent extends Component
     componentDidMount() {
         // axios.get(`http://localhost:8000/api/charts`)
         //     .then(res => {
-        const football = [{
+        const values = [{
                                 "date": "2018-09-24T15:53:47.497+06:00",
                                 "value": 4.5
                             },
@@ -41,25 +41,25 @@ export default class LineChartComponent extends Component
                                 "date": "2018-04-24T15:53:47.497+06:00",
                                 "value": 9.5
                             }];
-        football.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
+        values.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
         const today = new Date()
 
-        let playername = [];
-        let playerscore = [];
+        let dateArray = [];
+        let scoreArray = [];
 
-        football.forEach(element => {
+        values.forEach(element => {
             const date = new Date(element.date);
-            date.getMonth() === today.getMonth() ? playername.push('Today') : playername.push(dateFormat(date, 'd mmmm yyyy'))
-            playerscore.push(element.value)
+            date.getMonth() === today.getMonth() ? dateArray.push('Today') : dateArray.push(dateFormat(date, 'd mmmm yyyy'))
+            scoreArray.push(element.value)
         });
 
         this.setState({
             Data: {
-                labels: playername,
+                labels: dateArray,
                 datasets:[
                     {
                         label: 'Cash Runway',
-                        data: playerscore ,
+                        data: scoreArray ,
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: 'rgba(130,255,151,0.6)',
@@ -141,8 +141,8 @@ export default class LineChartComponent extends Component
                 <h3>Based on Expenses and Cost of Sale from 2 months prior</h3>
                 <Line
                     data = {this.state.Data}
-                    options = {this.state.Options}   height={10}
-                    width={30}/>
+                    options = {this.state.Options}   height={300}
+                    width={700}/>
             </div>
         )
     }
