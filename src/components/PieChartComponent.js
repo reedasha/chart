@@ -17,26 +17,17 @@ export default class PieChartComponent extends Component
     componentDidMount() {
         // axios.get(`http://localhost:8000/api/charts`)
         //     .then(res => {
-        const values = [{ "name": "Interest Income",
-                            "score": -400},
-            { "name": "Other Revenue",
-                "score": -200},
-            { "name": "Sales",
-                "score": 1054.5},
-            { "name": "Test",
-                "score": 500.5},
-            { "name": "Hi",
-                "score": 300.5},
-            { "name": "BYE",
-                "score": 390.5}
-
-        ];
+        const values = {
+            "Interest Income": -400,
+            "Other Revenue": -200,
+            "Sales": 1054.5
+        };
         let nameArray = [];
         let scoreArray = [];
-        values.forEach(element => {
-            nameArray.push(element.name);
-            scoreArray.push(element.score);
-        });
+        for(const elem in values) {
+            nameArray.push(elem)
+            scoreArray.push(values[elem])
+         }
         this.setState({
             Data: {
                 labels: nameArray,
