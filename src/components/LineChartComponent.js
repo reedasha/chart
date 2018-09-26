@@ -35,7 +35,7 @@ export default class LineChartComponent extends Component
                                                 dateArray.push(dateFormat(date, 'd mmmm yyyy'))
             scoreArray.push(values[elem])
          }
-         debugger
+         
          dateArray.sort()
 
         this.setState({
