@@ -14,7 +14,7 @@ const options = {
             fontSize: 18,
             fontStyle:'bold',
             fontColor:'#363532',
-            padding: 24,
+            padding: 12,
         }
     },
     scales: {
@@ -28,8 +28,7 @@ const options = {
             ticks: {
                 lineHeight: 24,
                 fontSize: 18,
-                padding: 12,
-                labelOffset: 20
+                padding: 10
             }
         }],
         yAxes: [{
@@ -44,8 +43,7 @@ const options = {
             ticks: {
                 stepSize: 1,
                 fontSize: 18,
-                padding: 20,
-                labelOffset: 20
+                padding: 10
             }
 
         }]
