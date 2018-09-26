@@ -17,41 +17,26 @@ export default class LineChartComponent extends Component
     componentDidMount() {
         // axios.get(`http://localhost:8000/api/charts`)
         //     .then(res => {
-        const values = [{
-                                "date": "2018-09-24T15:53:47.497+06:00",
-                                "value": 4.5
-                            },
-                            {
-                                "date": "2018-08-24T15:53:47.497+06:00",
-                                "value": 6
-                            },
-                            {
-                                "date": "2018-07-24T15:53:47.497+06:00",
-                                "value": 7
-                            },
-                            {
-                                "date": "2018-06-24T15:53:47.497+06:00",
-                                "value": 8
-                            },
-                            {
-                                "date": "2018-05-24T15:53:47.497+06:00",
-                                "value": 9
-                            },
-                            {
-                                "date": "2018-04-24T15:53:47.497+06:00",
-                                "value": 9.5
-                            }];
-        values.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
-        const today = new Date()
+        const values = {
+            "2018-09-24T15:53:47.497+06:00": 9.7,
+            "2018-08-24T15:53:47.497+06:00": 9,
+            "2018-07-24T15:53:47.497+06:00": 8,
+            "2018-06-24T15:53:47.497+06:00": 7,
+            "2018-05-24T15:53:47.497+06:00": 4.6
+        }
 
         let dateArray = [];
         let scoreArray = [];
 
-        values.forEach(element => {
-            const date = new Date(element.date);
-            date.getMonth() === today.getMonth() ? dateArray.push('Today') : dateArray.push(dateFormat(date, 'd mmmm yyyy'))
-            scoreArray.push(element.value)
-        });
+        const today = new Date();
+        for(const elem in values) {
+            const date = new Date(elem)
+            date.getMonth() === today.getMonth() ? dateArray.push('Today') : 
+                                                dateArray.push(dateFormat(date, 'd mmmm yyyy'))
+            scoreArray.push(values[elem])
+         }
+         debugger
+         dateArray.sort()
 
         this.setState({
             Data: {
