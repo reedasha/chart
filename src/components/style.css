@@ -1,0 +1,10 @@
+.chart {
+    border: 1px solid grey;
+    box-shadow: 3px 3px 20px #474747;
+    margin: 200px;
+}
+
+h1, h3 {
+    text-align: left;
+    margin-left: 20px;
+}
