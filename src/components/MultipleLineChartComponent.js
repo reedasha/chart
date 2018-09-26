@@ -17,158 +17,32 @@ export default class LineChartComponent extends Component
     componentDidMount() {
         // axios.get(`http://localhost:8000/api/charts`)
         //     .then(res => {
-        const football =   [{
-                                "date": "2018-09-24T15:53:47.497+06:00",
-                                "value": 4.5
-                            },
-                            {
-                                "date": "2018-08-24T15:53:47.497+06:00",
-                                "value": 6
-                            },
-                            {
-                                "date": "2018-07-24T15:53:47.497+06:00",
-                                "value": 7
-                            },
-                            {
-                                "date": "2018-06-24T15:53:47.497+06:00",
-                                "value": 8
-                            },
-                            {
-                                "date": "2018-05-24T15:53:47.497+06:00",
-                                "value": 9
-                            },
-                            {
-                                "date": "2018-04-24T15:53:47.497+06:00",
-                                "value": 9.5
-                            }];
-        const football2 =   [{
-            "date": "2018-09-24T15:53:47.497+06:00",
-            "value": 4
-        },
-            {
-                "date": "2018-08-24T15:53:47.497+06:00",
-                "value": 6
-            },
-            {
-                "date": "2018-07-24T15:53:47.497+06:00",
-                "value": 2
-            },
-            {
-                "date": "2018-06-24T15:53:47.497+06:00",
-                "value": 8
-            },
-            {
-                "date": "2018-05-24T15:53:47.497+06:00",
-                "value": 5
-            },
-            {
-                "date": "2018-04-24T15:53:47.497+06:00",
-                "value": 9.5
-            }];
-        const football3 =   [{
-            "date": "2018-09-24T15:53:47.497+06:00",
-            "value": 1
-        },
-            {
-                "date": "2018-08-24T15:53:47.497+06:00",
-                "value": 23
-            },
-            {
-                "date": "2018-07-24T15:53:47.497+06:00",
-                "value": 5
-            },
-            {
-                "date": "2018-06-24T15:53:47.497+06:00",
-                "value": 2
-            },
-            {
-                "date": "2018-05-24T15:53:47.497+06:00",
-                "value": 4
-            },
-            {
-                "date": "2018-04-24T15:53:47.497+06:00",
-                "value": 9.5
-            }];
+        const values = {
+            "2018-09-24T15:53:47.497+06:00": 9.7,
+            "2018-08-24T15:53:47.497+06:00": 9,
+            "2018-07-24T15:53:47.497+06:00": 8,
+            "2018-06-24T15:53:47.497+06:00": 7,
+            "2018-05-24T15:53:47.497+06:00": 4.6
+        }
 
-        football.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
-        const today = new Date()
+        let dateArray = [];
+        let scoreArray = [];
 
-        let fistDate = [];
-        let firstScore = [];
-
-        let secondDate = [];
-        let secondScore = [];
-
-        let thirdDate = [];
-        let thirdScore = [];
-        football.forEach(element => {
-            const date = new Date(element.date);
-            date.getMonth() === today.getMonth() ? fistDate.push('Today') : fistDate.push(dateFormat(date, 'd mmmm yyyy'))
-            firstScore.push(element.value)
-        });
-        football2.forEach(element => {
-            const date = new Date(element.date);
-            date.getMonth() === today.getMonth() ? secondDate.push('Today') : secondDate.push(dateFormat(date, 'd mmmm yyyy'))
-            secondScore.push(element.value)
-        });
-        football3.forEach(element => {
-            const date = new Date(element.date);
-            date.getMonth() === today.getMonth() ? thirdDate.push('Today') : thirdDate.push(dateFormat(date, 'd mmmm yyyy'))
-            thirdScore.push(element.value)
-        });
-
+        const today = new Date();
+        for(const elem in values) {
+            const date = new Date(elem)
+            date.getMonth() === today.getMonth() ? dateArray.push('Today') : 
+                                                dateArray.push(dateFormat(date, 'd mmmm yyyy'))
+            scoreArray.push(values[elem])
+         }
+         dateArray.sort()
         this.setState({
             Data: {
+                labels: dateArray,
                 datasets:[
                     {
-                        label: 'Bank of America',
-                        data: firstScore ,
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: 'rgba(130,255,151,0.6)',
-                        borderColor: 'rgba(130,255,160,1)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderWidth: 4,
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(130,255,151,1)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 3,
-                        pointHoverRadius: 8,
-                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 10,
-                        pointHitRadius: 10,
-                        steppedLine: true,
-                    },
-                    {
-                        label: 'Unicredit group',
-                        data: secondScore ,
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: 'rgba(130,255,151,0.6)',
-                        borderColor: 'rgba(130,255,160,1)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderWidth: 4,
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(130,255,151,1)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 3,
-                        pointHoverRadius: 8,
-                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 10,
-                        pointHitRadius: 10,
-                        steppedLine: true,
-                    },
-                    {
-                        label: 'Citigroup',
-                        data: thirdScore ,
+                        label: 'Cash Runway',
+                        data: scoreArray ,
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: 'rgba(130,255,151,0.6)',
@@ -239,7 +113,7 @@ export default class LineChartComponent extends Component
                 },
             }
         });
-        // })
+      // })
     }
 
     render()
@@ -250,8 +124,8 @@ export default class LineChartComponent extends Component
                 <h3>Based on Expenses and Cost of Sale from 2 months prior</h3>
                 <Line
                     data = {this.state.Data}
-                    options = {this.state.Options}   height={10}
-                    width={30}/>
+                    options = {this.state.Options}   height={300}
+                    width={700}/>
             </div>
         )
     }

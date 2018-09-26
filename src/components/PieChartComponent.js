@@ -3,7 +3,22 @@ import {Pie} from 'react-chartjs-2';
 import './style.css';
 // import axios from 'axios';
 
-
+const options = {
+            maintainAspectRatio: true,
+            legend: {
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true
+                }
+            },
+            plugins: {
+                labels: {
+                    render: 'label',
+                    fontColor: '#000',
+                    position: 'outside'
+                }
+            }
+        }
 export default class PieChartComponent extends Component
 {
     constructor(props) {
@@ -33,7 +48,6 @@ export default class PieChartComponent extends Component
                 labels: nameArray,
                 datasets:[
                     {
-                        label:'Test',
                         data: scoreArray ,
                         backgroundColor:[
                             'rgba(173,255,47,0.6)',
@@ -73,7 +87,7 @@ export default class PieChartComponent extends Component
                 <h1>Income Breakout</h1>
                 <Pie
                     data={this.state.Data}
-                         options={this.state.Options}
+                         options={options}
                 />
             </div>
         )
