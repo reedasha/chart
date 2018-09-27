@@ -5,21 +5,27 @@ import './style.css';
 import 'chartjs-plugin-labels'
 
 const options = {
-            maintainAspectRatio: true,
-            legend: {
-                position: 'bottom',
-                labels: {
-                    usePointStyle: true
+            elements: {
+                arc: {
+                    borderWidth: 0
                 }
             },
+            maintainAspectRatio: true,
+            legend: {
+                display:false
+            },
             plugins: {
-                labels: {
-                    render: 'label',
+                labels: [{
+                    render: function (args) {
+                        debugger
+                        return args.label + ' - ' + args.percentage + "%";
+                    },
                     fontColor: '#000',
                     position: 'outside',
-                    fontSize: 18,
-                    textMargin: 18
-                }
+                    fontSize: 14,
+                    textMargin: 18,
+
+                }]
             }
         }
 export default class PieChartComponent extends Component
