@@ -20,7 +20,7 @@ export default class LineChartComponent extends Component
         const values = [
             {
                 "key": 1538021360.401,
-                "value": -15874.48
+                "value": 10
             },
             {
                 "key": 1535342960.401,
@@ -105,7 +105,8 @@ export default class LineChartComponent extends Component
                         ticks: {
                             lineHeight: 24,
                             fontSize: 18,
-                            padding: 20
+                            padding: 12,
+                            labelOffset: 20
                         }
                     }],
                     yAxes: [{
@@ -118,8 +119,10 @@ export default class LineChartComponent extends Component
                             tickMarkLength: 10,
                         },
                         ticks: {
+                            stepSize: 1,
                             fontSize: 18,
-                            padding: 20
+                            padding: 20,
+                            labelOffset: 20
                         }
 
                     }]
