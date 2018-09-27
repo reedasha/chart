@@ -104,7 +104,7 @@ export default class LineChartComponent extends Component
                         data: scoreArray ,
                         fill: false,
                         lineTension: 0.1,
-                        backgroundColor: 'rgba(130,255,151,0.6)',
+                        backgroundColor: '#fff',
                         borderColor: 'rgba(130,255,160,1)',
                         borderCapStyle: 'butt',
                         borderDash: [],
