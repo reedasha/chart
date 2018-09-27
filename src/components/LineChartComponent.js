@@ -4,13 +4,56 @@ import './style.css';
 import dateFormat from 'dateformat';
 // import axios from 'axios';
 
+const options = {
+    maintainAspectRatio: false,
+    legend: {
+        position: 'bottom',
+        display: true,
+        labels: {
+            usePointStyle: true,
+            fontSize: 18,
+            fontStyle:'bold',
+            fontColor:'#363532',
+        }
+    },
+    scales: {
+        xAxes: [{
+            offset: true,
+            gridLines: {
+                drawOnChartArea: false,
+                color: "black",
+                tickMarkLength: 10,
+            },
+            ticks: {
+                lineHeight: 24,
+                fontSize: 18,
+                padding: 14
+            }
+        }],
+        yAxes: [{
+            scaleLabel:{
+                display:true,
+            },
+            gridLines: {
+                drawOnChartArea: false,
+                color: "black",
+                tickMarkLength: 10,
+            },
+            ticks: {
+                fontSize: 18,
+                padding: 14
+            }
+
+        }]
+    },
+}
+
 export default class LineChartComponent extends Component
 {
     constructor(props) {
         super(props);
         this.state = {
-            Data: {},
-            Options: {}
+            Data: {}
         }
     }
 
@@ -20,27 +63,27 @@ export default class LineChartComponent extends Component
         const values = [
             {
                 "key": 1538021360.401,
-                "value": 10
+                "value": 1
             },
             {
                 "key": 1535342960.401,
-                "value": 0
+                "value": 7
             },
             {
                 "key": 1532664560.401,
-                "value": 0
+                "value": 8.3
             },
             {
                 "key": 1530072560.401,
-                "value": 0
+                "value": 11
             },
             {
                 "key": 1527394160.401,
-                "value": 0
+                "value": 19.5
             }
         ]
         values.sort((a,b) => (a.key > b.key) ? 1 : ((b.key > a.key) ? -1 : 0));
-        debugger
+
         const today = new Date()
 
         let dateArray = [];
@@ -80,53 +123,6 @@ export default class LineChartComponent extends Component
                         steppedLine: true,
                     }
                 ]
-            },
-            Options: {
-                maintainAspectRatio: false,
-                legend: {
-                    position: 'bottom',
-                    display: true,
-                    labels: {
-                        usePointStyle: true,
-                        fontSize: 18,
-                        fontStyle:'bold',
-                        fontColor:'#363532',
-                        padding: 24,
-                    }
-                },
-                scales: {
-                    xAxes: [{
-                        offset: true,
-                        gridLines: {
-                            drawOnChartArea: false,
-                            color: "black",
-                            tickMarkLength: 10,
-                        },
-                        ticks: {
-                            lineHeight: 24,
-                            fontSize: 18,
-                            padding: 12,
-                            labelOffset: 20
-                        }
-                    }],
-                    yAxes: [{
-                        scaleLabel:{
-                            display:true,
-                        },
-                        gridLines: {
-                            drawOnChartArea: false,
-                            color: "black",
-                            tickMarkLength: 10,
-                        },
-                        ticks: {
-                            stepSize: 1,
-                            fontSize: 18,
-                            padding: 20,
-                            labelOffset: 20
-                        }
-
-                    }]
-                },
             }
         });
         // })
@@ -140,7 +136,7 @@ export default class LineChartComponent extends Component
                 <h3>Based on Expenses and Cost of Sale from 2 months prior</h3>
                 <Line
                     data = {this.state.Data}
-                    options = {this.state.Options}   height={300}
+                    options = {options}   height={300}
                     width={700}/>
             </div>
         )

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import PieChartComponent from './components/PieChartComponent';
 import LineChartComponent from './components/LineChartComponent';
@@ -10,7 +9,6 @@ class App extends Component {
     return (
       <div className="App">
           <PieChartComponent/>
-
           <LineChartComponent/>
           <MultipleChartComponent/>
       </div>

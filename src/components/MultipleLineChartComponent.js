@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 import './style.css';
 // import axios from 'axios';
 
@@ -77,57 +77,13 @@ export default class LineChartComponent extends Component
             }
         ]
         let nameArray = [];
+        let dateArray = [];
         let scoreArray = [];
         values.forEach(element => {
             nameArray.push(element.key);
             scoreArray.push(element.value);
         });
-        this.setState({
-            Data: {
-                labels: nameArray,
-                datasets:[
-                    {
-                        label:'Test',
-                        data: scoreArray ,
-                        backgroundColor:[
-                            'rgba(173,255,47,0.6)',
-                            'rgba(0,128,0,0.6)',
-                            'rgba(130,255,151,0.6)',
-                            'rgba(0, 255, 0,0.6)',
-                            'rgba(60,179,113,0.6)',
-                            'rgba(0,255,131,0.6)'
-                        ],
-        const values = {
-            "Revenue bank": {
-                "2018-09-24T15:53:42.257+06:00": -900
-            },
-            "ForPr.Application": {
-                "2018-09-24T15:53:42.257+06:00": -4830.5,
-                "2018-08-24T15:53:42.257+06:00": -4830.5,
-                "2018-07-24T15:53:42.257+06:00": 500,
-                "2018-07-24T15:53:42.257+06:00": -42.5
-            },
-            "Abdy": {
-                "2018-09-24T15:53:42.257+06:00": 145984
-            }
-        }
 
-        let nameArray = [];
-        let dateArray = [];
-        let scoreArray = [];
-
-        const today = new Date();
-        for(const name in values) {
-            nameArray.push(name)
-            debugger
-            for(const elem in values[name]) {
-                const date = new Date(elem)
-                date.getMonth() === today.getMonth() ? ((dateArray.includes('Today')) ? '' : dateArray.push('Today')) : 
-                                                    dateArray.push(dateFormat(date, 'd mmmm yyyy'))
-                scoreArray.push(values[name][elem])
-             }
-        }
-        debugger
 
         dateArray.sort()
         this.setState({
