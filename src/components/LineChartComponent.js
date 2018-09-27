@@ -17,38 +17,37 @@ export default class LineChartComponent extends Component
     componentDidMount() {
         // axios.get(`http://localhost:8000/api/charts`)
         //     .then(res => {
-        const values = [{
-                                "date": "2018-09-24T15:53:47.497+06:00",
-                                "value": 4.5
-                            },
-                            {
-                                "date": "2018-08-24T15:53:47.497+06:00",
-                                "value": 6
-                            },
-                            {
-                                "date": "2018-07-24T15:53:47.497+06:00",
-                                "value": 7
-                            },
-                            {
-                                "date": "2018-06-24T15:53:47.497+06:00",
-                                "value": 8
-                            },
-                            {
-                                "date": "2018-05-24T15:53:47.497+06:00",
-                                "value": 9
-                            },
-                            {
-                                "date": "2018-04-24T15:53:47.497+06:00",
-                                "value": 9.5
-                            }];
-        values.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
+        const values = [
+            {
+                "key": 1538021360.401,
+                "value": -15874.48
+            },
+            {
+                "key": 1535342960.401,
+                "value": 0
+            },
+            {
+                "key": 1532664560.401,
+                "value": 0
+            },
+            {
+                "key": 1530072560.401,
+                "value": 0
+            },
+            {
+                "key": 1527394160.401,
+                "value": 0
+            }
+        ]
+        values.sort((a,b) => (a.key > b.key) ? 1 : ((b.key > a.key) ? -1 : 0));
+        debugger
         const today = new Date()
 
         let dateArray = [];
         let scoreArray = [];
 
         values.forEach(element => {
-            const date = new Date(element.date);
+            const date = new Date(element.key * 1000);
             date.getMonth() === today.getMonth() ? dateArray.push('Today') : dateArray.push(dateFormat(date, 'd mmmm yyyy'))
             scoreArray.push(element.value)
         });
@@ -106,8 +105,7 @@ export default class LineChartComponent extends Component
                         ticks: {
                             lineHeight: 24,
                             fontSize: 18,
-                            padding: 12,
-                            labelOffset: 20
+                            padding: 20
                         }
                     }],
                     yAxes: [{
@@ -120,17 +118,15 @@ export default class LineChartComponent extends Component
                             tickMarkLength: 10,
                         },
                         ticks: {
-                            stepSize: 1,
                             fontSize: 18,
-                            padding: 20,
-                            labelOffset: 20
+                            padding: 20
                         }
 
                     }]
                 },
             }
         });
-      // })
+        // })
     }
 
     render()
