@@ -3,6 +3,8 @@ import {Line} from 'react-chartjs-2';
 import './style.css';
 // import axios from 'axios';
 
+import dateFormat from 'dateformat';
+
 const options = {
     maintainAspectRatio: false,
     legend: {
@@ -64,26 +66,61 @@ export default class LineChartComponent extends Component
         // const values = res.values
         const values = [
             {
-                "key": "Interest Income",
-                "value": -400
+                "accountName": "Revenue bank",
+                "values": [
+                    {
+                        "key": 1538021349.625,
+                        "value": -900
+                    }
+                ]
             },
             {
-                "key": "Other Revenue",
-                "value": -200
+                "accountName": "ForPr.Application",
+                "values": [
+                    {
+                        "key": 1538021349.625,
+                        "value": -4830.5
+                    },
+                    {
+                        "key": 1535342949.625,
+                        "value": -4830.5
+                    },
+                    {
+                        "key": 1532664549.625,
+                        "value": -42.5
+                    }
+                ]
             },
             {
-                "key": "Sales",
-                "value": 10958.5
+                "accountName": "Import Test Account",
+                "values": [
+                    {
+                        "key": 1538021349.625,
+                        "value": -6546657
+                    }
+                ]
+            },
+            {
+                "accountName": "Abdy",
+                "values": [
+                    {
+                        "key": 1538021349.625,
+                        "value": 13125225.5
+                    }
+                ]
             }
         ]
         let nameArray = [];
         let dateArray = [];
         let scoreArray = [];
         values.forEach(element => {
-            nameArray.push(element.key);
-            scoreArray.push(element.value);
-        });
+            nameArray.push(element.accountName);
+            element['values'].forEach(data => {
+                dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmmm yyyy'))
+                scoreArray.push(data.value)
+            })
 
+        });
 
         dateArray.sort()
         this.setState({

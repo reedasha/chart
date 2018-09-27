@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f2a8f1-672e-4b2d-b9a8-110f37c3d6fa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/LineChartComponent.js" afterPath="$PROJECT_DIR$/src/components/LineChartComponent.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/MultipleLineChartComponent.js" afterPath="$PROJECT_DIR$/src/components/MultipleLineChartComponent.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LineChartComponent.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LineChartComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/LineChartComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="105" column="41" lean-forward="true" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
+            <state relative-caret-position="216">
+              <caret line="93" column="123" lean-forward="true" selection-start-line="93" selection-start-column="92" selection-end-line="93" selection-end-column="123" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -51,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MultipleLineChartComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MultipleLineChartComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/MultipleLineChartComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1935">
-              <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            <state relative-caret-position="450">
+              <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -236,10 +235,10 @@
         <option value="$PROJECT_DIR$/src/components/LineChartCompon.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/style.css" />
-        <option value="$PROJECT_DIR$/src/components/MultipleLineChartComponent.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/PieChartComponent.js" />
         <option value="$PROJECT_DIR$/src/components/LineChartComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/MultipleLineChartComponent.js" />
       </list>
     </option>
   </component>
@@ -338,12 +337,12 @@
       <workItem from="1537877700351" duration="5989000" />
       <workItem from="1537937017651" duration="1938000" />
       <workItem from="1537941289548" duration="4655000" />
-      <workItem from="1538045674734" duration="3333000" />
+      <workItem from="1538045674734" duration="4122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31619000" />
+    <option name="totallyTimeSpent" value="32408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -961,20 +960,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MultipleLineChartComponent.js">
+    <entry file="file://$PROJECT_DIR$/src/components/LineChartComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1935">
-          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        <state relative-caret-position="216">
+          <caret line="93" column="123" lean-forward="true" selection-start-line="93" selection-start-column="92" selection-end-line="93" selection-end-column="123" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LineChartComponent.js">
+    <entry file="file://$PROJECT_DIR$/src/components/MultipleLineChartComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="105" column="41" lean-forward="true" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
+        <state relative-caret-position="450">
+          <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
