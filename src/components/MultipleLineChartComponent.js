@@ -75,12 +75,8 @@ export default class LineChartComponent extends Component
                 "accountName": "Revenue bank",
                 "values": [
                     {
-                        "key": 1538021349.625,
+                        "key": 1532664549.625,
                         "value": 2100000
-                    },
-                    {
-                        "key": 1538021349.625,
-                        "value": 50000
                     }
                 ]
             },
@@ -261,6 +257,30 @@ export default class LineChartComponent extends Component
 
     render()
     {
+        // let rows = [];
+        // for (var i = 0; i < this.state.size; i++){
+        //     let rowID = `row${i}`
+        //     let cell = []
+        //     for (var idx = 0; idx < this.state.size; idx++){
+        //         let cellID = `cell${i}-${idx}`
+        //         cell.push(<td key={cellID} id={cellID}></td>)
+        //     }
+        //     rows.push(<tr key={i} id={rowID}>{cell}</tr>)
+        // }
+        // return(
+        //     <div className="container">
+        //         <div className="row">
+        //             <div className="col s12 board">
+        //                 <table id="simple-board">
+        //                     <tbody>
+        //                     {rows}
+        //                     </tbody>
+        //                 </table>
+        //             </div>
+        //         </div>
+        //     </div>
+        // )
+
         return(
             <div class="chart">
                 <h1>Cash Snapshot</h1>
