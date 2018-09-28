@@ -66,7 +66,12 @@ export default class PieChartComponent extends Component
                     {
                         data: scoreArray ,
                         backgroundColor:[
-                            'red'
+                            'rgba(173,255,47,0.6)',
+                            'rgba(0,128,0,0.6)',
+                            'rgba(130,255,151,0.6)',
+                            'rgba(0, 255, 0,0.6)',
+                            'rgba(60,179,113,0.6)',
+                            'rgba(0,255,131,0.6)'
                         ],
                     }
                 ],

@@ -9,6 +9,7 @@ const options = {
     maintainAspectRatio: true,
     cubicInterpolationMode: 'monotone',
     responsive: true,
+    // scaleFontColor: 'red',
     legend: {
         position: 'bottom',
         display: true,
@@ -22,16 +23,20 @@ const options = {
     },
     scales: {
         xAxes: [{
+            borderWidth: 1,
+        borderColor: 'red',
             offset: true,
             gridLines: {
-                drawOnChartArea: false,
-                color: "black",
+                drawOnChartArea: true,
+                // color: 'green',
+                // zeroLineColor: 'orange',
                 tickMarkLength: 10,
+                // zeroLineColor: 'black'
             },
             ticks: {
                 lineHeight: 24,
                 fontSize: 18,
-                padding: 10
+                padding: 10,
             }
         }],
         yAxes: [{
@@ -75,8 +80,24 @@ export default class LineChartComponent extends Component
                 "accountName": "Revenue bank",
                 "values": [
                     {
-                        "key": 1532664549.625,
-                        "value": 2100000
+                        "key": 1538021360.401,
+                        "value": 40000
+                    },
+                    {
+                        "key": 1535342960.401,
+                        "value": 45000
+                    },
+                    {
+                        "key": 1532664560.401,
+                        "value": 60000
+                    },
+                    {
+                        "key": 1530072560.401,
+                        "value": 38400
+                    },
+                    {
+                        "key": 1527394160.401,
+                        "value": 12300
                     }
                 ]
             },
@@ -84,20 +105,24 @@ export default class LineChartComponent extends Component
                 "accountName": "ForPr.Application",
                 "values": [
                     {
-                        "key": 1538021349.625,
-                        "value": -4830.5
+                        "key": 1538021360.401,
+                        "value": 50000
                     },
                     {
-                        "key": 1535342949.625,
-                        "value": -480.5
+                        "key": 1535342960.401,
+                        "value": 70000
                     },
                     {
-                        "key": 1532664549.625,
-                        "value": -42.5
+                        "key": 1532664560.401,
+                        "value": 70500
                     },
                     {
-                        "key": 1538021349.625,
-                        "value": -3110.5
+                        "key": 1530072560.401,
+                        "value": 67000
+                    },
+                    {
+                        "key": 1527394160.401,
+                        "value": 45000
                     }
                 ]
             },
@@ -105,8 +130,24 @@ export default class LineChartComponent extends Component
                 "accountName": "Import Test Account",
                 "values": [
                     {
-                        "key": 1538021349.625,
-                        "value": -6511146
+                        "key": 1538021360.401,
+                        "value": 70000
+                    },
+                    {
+                        "key": 1535342960.401,
+                        "value": 90000
+                    },
+                    {
+                        "key": 1532664560.401,
+                        "value": 90800
+                    },
+                    {
+                        "key": 1530072560.401,
+                        "value": 45090
+                    },
+                    {
+                        "key": 1527394160.401,
+                        "value": 24890
                     }
                 ]
             },
@@ -114,12 +155,24 @@ export default class LineChartComponent extends Component
                 "accountName": "Abdy",
                 "values": [
                     {
-                        "key": 1538021349.625,
-                        "value": 1312525.5
+                        "key": 1538021360.401,
+                        "value": 10010
                     },
                     {
-                        "key": 1532664549.625,
-                        "value": 542222.5
+                        "key": 1535342960.401,
+                        "value": 20000
+                    },
+                    {
+                        "key": 1532664560.401,
+                        "value": 12030
+                    },
+                    {
+                        "key": 1530072560.401,
+                        "value": 40020
+                    },
+                    {
+                        "key": 1527394160.401,
+                        "value": 80000
                     }
                 ]
             }
@@ -130,13 +183,17 @@ export default class LineChartComponent extends Component
         let bankOfAmerica = [];
         let uniCreditGroup = [];
         let citiGroup = [];
+        const today = new Date()
         values.forEach(element => {
             nameArray.push(element.accountName);
             let rowDate = [];
             let rowValue = [];
             element['values'].forEach(data => {
-                if (dateArray.indexOf(dateFormat(new Date(data.key * 1000), 'd mmm yyyy')) === -1) {
-                    dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmm yyyy'))
+                const date = new Date(data.key * 1000);
+                if (!dateArray.includes(dateFormat(date, 'd mmm yyyy'))) {
+                    date.getMonth() === today.getMonth() ? 
+                                        (!dateArray.includes('Today') ? dateArray.push('Today') : '') 
+                                        : dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmm yyyy'))
                 }
                 //dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmm yyyy'))
                 rowValue.push(data.value);
@@ -152,6 +209,7 @@ export default class LineChartComponent extends Component
         });
 
         dateArray.sort();
+        
         //this.setState = {size: 3}
         this.setState({
             Data: {
