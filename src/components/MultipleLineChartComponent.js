@@ -75,8 +75,12 @@ export default class LineChartComponent extends Component
                 "accountName": "Revenue bank",
                 "values": [
                     {
-                        "key": 1532664549.625,
+                        "key": 1538021349.625,
                         "value": 2100000
+                    },
+                    {
+                        "key": 1538021349.625,
+                        "value": 50000
                     }
                 ]
             },
