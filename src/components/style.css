@@ -1,10 +1,15 @@
 .chart {
-    border: 1px solid grey;
-    box-shadow: 3px 3px 20px #474747;
-    margin: 200px;
+    box-shadow: 1vw 1vw 10vw #474747;
+    margin: 2vw;
+}
+
+.chartCanvas {
+    responsive: true;
+    height:80vw;
+    width:100vw;
 }
 
 h1, h3 {
     text-align: left;
-    margin-left: 20px;
+    margin-left: 2vw;
 }

@@ -5,7 +5,8 @@ import dateFormat from 'dateformat';
 // import axios from 'axios';
 
 const options = {
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
+    responsive: true,
     legend: {
         position: 'bottom',
         display: true,
@@ -134,10 +135,13 @@ export default class LineChartComponent extends Component
             <div class="chart">
                 <h1>Cash Runway(# of Month)</h1>
                 <h3>Based on Expenses and Cost of Sale from 2 months prior</h3>
-                <Line
-                    data = {this.state.Data}
-                    options = {options}   height={300}
-                    width={700}/>
+                <div class="chartCanvas">
+                    <Line
+                        data = {this.state.Data}
+                        options = {options}
+                        height={500}
+                        width={700}/>
+                </div>
             </div>
         )
     }

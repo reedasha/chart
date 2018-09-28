@@ -11,19 +11,20 @@ const options = {
                 }
             },
             maintainAspectRatio: true,
+            responsive: true,
             legend: {
                 display:false
             },
             plugins: {
                 labels: [{
                     render: function (args) {
-                        debugger
                         return args.label + ' - ' + args.percentage + "%";
                     },
                     fontColor: '#000',
                     position: 'outside',
                     fontSize: 14,
-                    textMargin: 18,
+                    textMargin: 5,
+                    overlap: true,
 
                 }]
             }
@@ -46,13 +47,9 @@ export default class PieChartComponent extends Component
                 "value": -800
             },
             {
-                "key": "Other Revenue",
-                "value": -900
+                "key": "Interest Income",
+                "value": -400
             },
-            {
-                "key": "Sales",
-                "value": 10958.5
-            }
         ]
         let nameArray = [];
         let scoreArray = [];
@@ -69,12 +66,7 @@ export default class PieChartComponent extends Component
                     {
                         data: scoreArray ,
                         backgroundColor:[
-                            'rgba(173,255,47,0.6)',
-                            'rgba(0,128,0,0.6)',
-                            'rgba(130,255,151,0.6)',
-                            'rgba(0, 255, 0,0.6)',
-                            'rgba(60,179,113,0.6)',
-                            'rgba(0,255,131,0.6)'
+                            'red'
                         ],
                     }
                 ],
@@ -88,10 +80,14 @@ export default class PieChartComponent extends Component
         return(
             <div class="chart">
                 <h1>Income Breakout</h1>
-                <Pie
-                    data={this.state.Data}
-                         options={options}
-                />
+                <div class="chartCanvas">
+                    <Pie
+                        data={this.state.Data}
+                             options={options}
+                        height={80}
+                        width={100}
+                    />
+                </div>
             </div>
         )
     }
