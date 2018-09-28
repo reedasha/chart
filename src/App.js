@@ -8,9 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          <MultipleChartComponent/>
           <PieChartComponent/>
           <LineChartComponent/>
-          <MultipleChartComponent/>
       </div>
     );
   }

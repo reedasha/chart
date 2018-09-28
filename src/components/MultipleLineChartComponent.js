@@ -7,6 +7,8 @@ import dateFormat from 'dateformat';
 
 const options = {
     maintainAspectRatio: false,
+    cubicInterpolationMode: 'monotone',
+    responsive: true,
     legend: {
         position: 'bottom',
         display: true,
@@ -43,7 +45,10 @@ const options = {
             },
             ticks: {
                 fontSize: 18,
-                padding: 10
+                padding: 10,
+                callback: function(value, index, values) {
+                    return '$' + value/1000 + 'K';
+                }
             }
 
         }]
@@ -113,33 +118,39 @@ export default class LineChartComponent extends Component
         let nameArray = [];
         let dateArray = [];
         let scoreArray = [];
+        let bankOfAmerica = [];
+        let uniCreditGroup = [];
+        let citiGroup = [];
         values.forEach(element => {
             nameArray.push(element.accountName);
             element['values'].forEach(data => {
-                dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmmm yyyy'))
-                scoreArray.push(data.value)
+                dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmm yyyy'))
+                scoreArray.push(data.value);
+                bankOfAmerica.push(data.value);
+                uniCreditGroup.push(data.value * (-1.5) + 20000000);
+                citiGroup.push(data.value + 50000000);
             })
 
         });
 
-        dateArray.sort()
+        dateArray.sort();
         this.setState({
             Data: {
                 labels: dateArray,
                 datasets:[
                     {
-                        label: 'A',
-                        data: scoreArray ,
+                        label: 'Bank of America',
+                        data: bankOfAmerica ,
                         fill: false,
                         lineTension: 0.1,
-                        backgroundColor: 'rgba(130,255,151,0.6)',
-                        borderColor: 'rgba(130,255,160,1)',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        borderColor: 'rgb(115, 188, 131)',
                         borderCapStyle: 'butt',
                         borderDash: [],
                         borderWidth: 4,
                         borderDashOffset: 0.0,
                         borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(130,255,151,1)',
+                        pointBorderColor: 'rgb(115, 188, 131)',
                         pointBackgroundColor: '#fff',
                         pointBorderWidth: 3,
                         pointHoverRadius: 8,
@@ -148,14 +159,37 @@ export default class LineChartComponent extends Component
                         pointHoverBorderWidth: 2,
                         pointRadius: 10,
                         pointHitRadius: 10,
-                        steppedLine: true,
+                        //steppedLine: true,
                     },
                     {
-                        label: 'B',
-                        data: scoreArray ,
+                        label: 'Unicredit Group',
+                        data: uniCreditGroup ,
                         fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: 'rgba(230,255,151,0.6)',
+                        lineTension: 0,
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        borderColor: 'rgb(61, 247, 9)',
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderWidth: 4,
+                        borderDashOffset: 0.0,
+                        //borderJoinStyle: 'miter',
+                        pointBorderColor: 'rgb(61, 247, 9)',
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 3,
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
+                        pointHoverBorderColor: 'rgba(220,220,220,1)',
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 10,
+                        pointHitRadius: 10,
+                        //steppedLine: true
+                    },
+                    {
+                        label: 'Citigroup',
+                        data: citiGroup ,
+                        fill: false,
+                        lineTension: 0,
+                        backgroundColor: 'rgb(255, 255, 255)',
                         borderColor: 'rgba(130,255,160,1)',
                         borderCapStyle: 'butt',
                         borderDash: [],
@@ -171,7 +205,7 @@ export default class LineChartComponent extends Component
                         pointHoverBorderWidth: 2,
                         pointRadius: 10,
                         pointHitRadius: 10,
-                        steppedLine: true
+                        //steppedLine: true
                     }
                 ],
             },
