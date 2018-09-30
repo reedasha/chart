@@ -9,7 +9,6 @@ const options = {
     maintainAspectRatio: true,
     cubicInterpolationMode: 'monotone',
     responsive: true,
-    // scaleFontColor: 'red',
     legend: {
         position: 'bottom',
         display: true,
@@ -17,21 +16,15 @@ const options = {
             usePointStyle: true,
             fontSize: 18,
             fontStyle:'bold',
-            fontColor:'#363532',
             padding: 12,
         }
     },
     scales: {
         xAxes: [{
-            borderWidth: 1,
-        borderColor: 'red',
             offset: true,
             gridLines: {
                 drawOnChartArea: true,
-                // color: 'green',
-                // zeroLineColor: 'orange',
                 tickMarkLength: 10,
-                // zeroLineColor: 'black'
             },
             ticks: {
                 lineHeight: 24,
@@ -65,8 +58,7 @@ export default class LineChartComponent extends Component
     constructor(props) {
         super(props);
         this.state ={
-            Data: {},
-            size: 3
+            Data: {}
         }
     }
 
@@ -180,9 +172,7 @@ export default class LineChartComponent extends Component
         let nameArray = [];
         let dateArray = [];
         let scoreArray = [];
-        let bankOfAmerica = [];
-        let uniCreditGroup = [];
-        let citiGroup = [];
+
         const today = new Date()
         values.forEach(element => {
             nameArray.push(element.accountName);
@@ -194,151 +184,59 @@ export default class LineChartComponent extends Component
                     date.getMonth() === today.getMonth() ? 
                                         (!dateArray.includes('Today') ? dateArray.push('Today') : '') 
                                         : dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmm yyyy'))
-                }
-                //dateArray.push(dateFormat(new Date(data.key * 1000), 'd mmm yyyy'))
-                rowValue.push(data.value);
-                // scoreArray.push(data.value);
-                // bankOfAmerica.push(data.value);
-                // uniCreditGroup.push(data.value * (-1.5) + 20000000);
-                // citiGroup.push(data.value + 50000000);
+                }rowValue.push(data.value);
             })
-            //dateArray.push(rowDate);
             scoreArray.push(rowValue);
 
 
         });
 
         dateArray.sort();
-        
-        //this.setState = {size: 3}
-        this.setState({
-            Data: {
-                labels: dateArray,
-                datasets:[
-                    {
-                        label: nameArray[0],
-                        data: scoreArray[0] ,
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        borderColor: 'rgb(115, 188, 131)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderWidth: 4,
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgb(115, 188, 131)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 3,
-                        pointHoverRadius: 8,
-                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 10,
-                        pointHitRadius: 10,
-                        //steppedLine: true,
-                    },
-                    {
-                        label: nameArray[1],
-                        data: scoreArray[1] ,
-                        fill: false,
-                        lineTension: 0,
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        borderColor: 'rgb(61, 247, 9)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderWidth: 4,
-                        borderDashOffset: 0.0,
-                        //borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgb(61, 247, 9)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 3,
-                        pointHoverRadius: 8,
-                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 10,
-                        pointHitRadius: 10,
-                        //steppedLine: true
-                    },
-                    {
-                        label: nameArray[2],
-                        data: scoreArray[2] ,
-                        fill: false,
-                        lineTension: 0,
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        borderColor: 'rgba(130,255,160,1)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderWidth: 4,
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(130,255,151,1)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 3,
-                        pointHoverRadius: 8,
-                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 10,
-                        pointHitRadius: 10,
-                        //steppedLine: true
-                    },
-                    {
-                        label: nameArray[3],
-                        data: scoreArray[3] ,
-                        fill: false,
-                        lineTension: 0,
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        borderColor: 'rgba(230,255,60,1)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderWidth: 4,
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(230,255,60,1)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 3,
-                        pointHoverRadius: 8,
-                        pointHoverBackgroundColor: 'rgba(130,255,151,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 10,
-                        pointHitRadius: 10,
-                        //steppedLine: true
+
+        const colors = [
+            'rgb(173,255,47)',
+            'rgb(0,128,0)',
+            'rgb(130,255,151)',
+            'rgb(0, 255, 0)',
+            'rgb(60,179,113)',
+            'rgb(0,255,131)'
+        ];
+
+        for(let i = 0; i < nameArray.length; i++) {
+            debugger
+            this.setState(prevState =>({
+                Data: {
+                    labels: dateArray,
+                    datasets:[ ...prevState.Data.datasets,
+                        {
+                            label: nameArray[i],
+                            data: scoreArray[i] ,
+                            fill: false,
+                            lineTension: 0.1,
+                            borderColor: colors[i],
+                            borderCapStyle: 'butt',
+                            backgroundColor: 'white',
+                            borderDash: [],
+                            borderWidth: 4,
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: colors[i],
+                            pointBackgroundColor: '#fff',
+                            pointBorderWidth: 3,
+                            pointHoverRadius: 8,
+                            pointHoverBackgroundColor: colors[i],
+                            pointHoverBorderColor: 'rgb(220,220,220)',
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 10,
+                            pointHitRadius: 10
+                        }]
                     }
-                ],
-            },
-        });
-      // })
+            }))
+        }
     }
 
     render()
     {
-        // let rows = [];
-        // for (var i = 0; i < this.state.size; i++){
-        //     let rowID = `row${i}`
-        //     let cell = []
-        //     for (var idx = 0; idx < this.state.size; idx++){
-        //         let cellID = `cell${i}-${idx}`
-        //         cell.push(<td key={cellID} id={cellID}></td>)
-        //     }
-        //     rows.push(<tr key={i} id={rowID}>{cell}</tr>)
-        // }
-        // return(
-        //     <div className="container">
-        //         <div className="row">
-        //             <div className="col s12 board">
-        //                 <table id="simple-board">
-        //                     <tbody>
-        //                     {rows}
-        //                     </tbody>
-        //                 </table>
-        //             </div>
-        //         </div>
-        //     </div>
-        // )
-
         return(
             <div class="chart">
                 <h1>Cash Snapshot</h1>
